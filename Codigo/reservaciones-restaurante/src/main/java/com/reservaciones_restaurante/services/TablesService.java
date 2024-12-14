@@ -2,7 +2,6 @@ package com.reservaciones_restaurante.services;
 
 import com.reservaciones_restaurante.model.Tables;
 import com.reservaciones_restaurante.repository.TablesRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,8 +10,12 @@ import java.util.Optional;
 @Service
 public class TablesService {
 
-    @Autowired
-    private TablesRepository tablesRepository;
+    private final TablesRepository tablesRepository;
+
+    // Constructor injection
+    public TablesService(TablesRepository tablesRepository) {
+        this.tablesRepository = tablesRepository;
+    }
 
     public List<Tables> getAllTables() {
         return tablesRepository.findAll();

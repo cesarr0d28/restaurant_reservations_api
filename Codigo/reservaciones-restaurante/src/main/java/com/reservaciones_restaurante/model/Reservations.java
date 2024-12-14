@@ -30,7 +30,7 @@ public class Reservations {
     private LocalDateTime createdAt;
 
     public enum Status {
-        CONFIRMED, CANCELLED
+        CONFIRMED, CANCELED
     }
 
 	public int getId() {
