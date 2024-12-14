@@ -1,0 +1,1 @@
+Para la ejecución del proyecto se debe ejecutar el script en MySQL para construir la estructura de la base de datos, posteriormente se deberá configurar el archivo de properties ingresando los datos de conexión, el proyecto se desarrollo sobre MAVEN con Java versión 21
