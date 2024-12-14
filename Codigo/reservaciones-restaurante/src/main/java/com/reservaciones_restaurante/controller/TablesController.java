@@ -2,7 +2,6 @@ package com.reservaciones_restaurante.controller;
 
 import com.reservaciones_restaurante.model.Tables;
 import com.reservaciones_restaurante.services.TablesService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,8 +11,12 @@ import java.util.List;
 @RequestMapping("/api/tables")
 public class TablesController {
 
-    @Autowired
-    private TablesService tablesService;
+    private final TablesService tablesService;
+
+    // Constructor injection
+    public TablesController(TablesService tablesService) {
+        this.tablesService = tablesService;
+    }
 
     @GetMapping
     public List<Tables> getAllTables() {
@@ -51,5 +54,3 @@ public class TablesController {
         return ResponseEntity.notFound().build();
     }
 }
-
-

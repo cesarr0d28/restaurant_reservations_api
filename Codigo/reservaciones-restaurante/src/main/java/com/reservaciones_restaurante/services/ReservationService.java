@@ -1,6 +1,5 @@
 package com.reservaciones_restaurante.services;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.reservaciones_restaurante.repository.ReservationRepository;
@@ -11,8 +10,13 @@ import java.util.Optional;
 
 @Service
 public class ReservationService {
-    @Autowired
-    private ReservationRepository reservationRepository;
+
+    private final ReservationRepository reservationRepository;
+
+    // Constructor injection
+    public ReservationService(ReservationRepository reservationRepository) {
+        this.reservationRepository = reservationRepository;
+    }
 
     public List<Reservations> getAllReservations() {
         return reservationRepository.findAll();
